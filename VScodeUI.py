@@ -15,7 +15,7 @@ st.sidebar.markdown("This AI, Johnny, will serve as an assistant to explain and 
 st.sidebar.markdown("You can input specifics asking the AI to summarize, find solutions, or explain key things in the document.")
 st.sidebar.markdown("Johnny will also act based on your own inputted communication style to best suit your needs.")
 
-genai.configure(api_key=st.secret["apikey"])
+genai.configure(api_key=st.secrets["apikey"])
 model=genai.GenerativeModel("gemini-2.5-flash")
 
 def extract_text(file):
@@ -53,4 +53,5 @@ Give a detailed description of the solution to this problem in an elaborate mann
 """
     text1=model.generate_content([prompt])
     st.write(text1.text)
+
 
